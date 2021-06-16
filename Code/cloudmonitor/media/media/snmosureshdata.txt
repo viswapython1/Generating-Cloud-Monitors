@@ -1,0 +1,8 @@
+Cloud computing is an emergent paradigm to provide reliable and resilient infrastructure enabling the users (data owners)
+to store their data and the data consumers (users) can access the data from cloud servers. This paradigm reduces storage and
+maintenance cost of the data owner. At the same time, the data owner loses the physical control and possession of data which leads to
+many security risks. Therefore, auditing service to check data integrity in the cloud is essential. This issue has become a challenge as
+the possession of data needs to be verified while maintaining the privacy. To address these issues this work proposes a secure and
+efficient privacy preserving provable data possession (SEPDP). Further, we extend SEPDP to support multiple owners, data dynamics
+and batch verification. The most attractive feature of this scheme is that the auditor can verify the possession of data with low
+computational overhead. i can edit

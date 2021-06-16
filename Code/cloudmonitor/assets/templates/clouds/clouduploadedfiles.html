@@ -1,0 +1,50 @@
+{% extends 'clouds/cloudbase.html'%}
+{% load static %}
+{% block contents%}
+<div id="qbootstrap-testimonial" class="qbootstrap-bg-section">
+		<div class="container">
+			<div class="row animate-box">
+                    <span><h1>Cloud Server View Uploaded Files of Users</h1></span>
+					<p>
+                        <table border="2px">
+                                            <tr style="color: darkblue">
+                                                <th>S.No</th>
+                                                <th>Name</th>
+                                                <th>Email</th>
+                                                <th>App Name</th>
+                                                <th>File Name</th>
+                                                <th>Server path</th>
+                                                <th>Edit</th>
+                                                <th>Delete</th>
+                                                <th>Download</th>
+                                                <th>Upload New</th>
+                                            </tr>
+                                            {% for i in objects %}
+                                            <tr style="color: RED">
+                                                <td>{{forloop.counter}}</td>
+                                                <td>{{i.name}}</td>
+                                                <td>{{i.email}}</td>
+                                                <td>{{i.appname}}</td>
+                                                <td>{{i.filename}}</td>
+                                                <td>{{i.userfile}}</td>
+                                                <td><a class="btn btn-primary btn-md" href="{%url 'resturl' i.id%}">Edit</a> </td>
+                                                <td><a class="btn btn-danger btn-md" href="{%url 'deletefile' i.id%}">Delete</a></td>
+                                                <td><a class="btn btn-success btn-md" href="{% url 'downloadfile' i.id%}">Download</a> </td>
+                                                <td><a class="btn btn-warning btn-md" href="{% url 'uploadfile'%}">Upload</a></td>
+
+
+                                            </tr>
+                                            {% endfor %}
+                                        </table>
+
+
+
+                    </p>
+				</div>
+			</div>
+
+
+	</div>
+
+
+{% endblock %}

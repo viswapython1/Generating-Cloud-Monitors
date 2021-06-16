@@ -1,0 +1,56 @@
+{% extends 'users/userbase.html'%}
+{% load static %}
+{% block contents%}
+<div id="qbootstrap-testimonial" class="qbootstrap-bg-section">
+		<div class="container">
+			<div class="row animate-box">
+				<div class="col-md-6 col-md-offset-3 text-center qbootstrap-heading">
+                    <span><h1>Upload Data To Cloud </h1></span>
+					<p>
+
+                            <form action="{% url 'snippet_detail' %}" method="POST" class="contact-form" enctype="multipart/form-data">
+                                {%csrf_token%}
+                                <div class="form-group">
+							        <label for="name" class="sr-only">Name</label>
+							        <input type="text" name="name" class="form-control" value="{{request.session.loggeduser}}" readonly id="name" >
+						        </div>
+						        <div class="form-group">
+							        <label for="email" class="sr-only">Email</label>
+							        <input type="email" name="email" class="form-control" id="email" value="{{request.session.email}}" readonly>
+						        </div>
+                                <div class="form-group">
+							        <label for="name" class="sr-only">App Nname</label>
+							        <input type="text" name="appname" class="form-control" value = {{appname}} required="True" id="name" >
+						        </div>
+                                <div class="form-group">
+							        <label for="name" class="sr-only">Access key</label>
+							        <input type="text" name="accesskey" class="form-control" value="{{acckey}}" placeholder="cloud admin will generate"  readonly id="name" >
+						        </div>
+                                <div class="form-group">
+							        <label for="name" class="sr-only">Secret key</label>
+							        <input type="text" class="form-control" name="secretkey" value="{{secretkey}}" placeholder="cloud admin will generate" readonly id="name" >
+						        </div>
+								<div class="form-group">
+									<label for="name" class="sr-only">File Name</label>
+									<input type="text" name="filename" class="form-control" placeholder="Write Your FIle name" required="True">
+								</div>
+                                  <div class="form-group">
+							        <label for="name" class="sr-only">Secret key</label>
+							        <input type="file" class="form-control" name="userfile" placeholder="cloud admin will generate" readonly id="name" >
+						        </div>
+                                <div class="form-group">
+							        <input type="submit" id="btn-submit" class="btn btn-primary btn-send-message btn-md" value="Upload File">
+						        </div>
+                            </form>
+
+
+
+                    </p>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+{% endblock %}

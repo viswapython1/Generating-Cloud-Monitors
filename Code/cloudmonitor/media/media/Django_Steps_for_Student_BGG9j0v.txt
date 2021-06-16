@@ -1,0 +1,165 @@
+Install Django
+==============
+-> Check Python Version
+    python --version
+
+   pip insatll django==1.9 or pip install django
+-> Check Django version
+    django-admin --version
+
+--> creating project
+  django-admin startproject website
+--> running
+    python manage.py runserver
+--> Creating App in Project
+    python manage.py startapp music
+
+Now Create urls.py in music app
+and configure your urls like
+
+urls.py
+=======
+from django.conf.urls import url
+from . import views
+
+urlpatterns = [
+    url(r'^$', views.index,name='index'),
+]
+
+add the include to main url website/urls.py like this
+=====================================================
+from django.contrib import admin
+from django.conf.urls import include, url
+
+urlpatterns = [
+    url('admin/', admin.site.urls),
+    url(r'^music/', include('music.urls')),
+]
+
+now add views in music/views.py
+==============================
+
+from django.http import HttpResponse
+
+def index(request):
+    return HttpResponse("<h1>This is my Music App</h1>")
+
+
+Migrate
+========
+migrate for database access to newly created app
+
+python manage.py migrate
+
+
+creating models.py in music app
+==================
+from django.db import models
+
+# Create your models here.
+class Album(models.Model):
+    artist = models.CharField(max_length=250)
+    album_title = models.CharField(max_length=500)
+    genre = models.CharField(max_length=100)
+    album_logo = models.CharField(max_length=1000)
+
+class Song(models.Model):
+    album = models.ForeignKey(Album,on_delete=models.CASCADE)
+    file_type = models.CharField(max_length=10)
+    song_title = models.CharField(max_length=250)
+
+
+
+update Setting.py
+================
+
+INSTALLED_APPS = [
+    'music.apps.MusicConfig',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
+
+
+makemigrations
+===================
+python manage.py makemigrations music
+
+
+sqlmigrations
+==============
+python manage.py sqlmigrate music 0001
+
+
+python manage.py migrate
+
+
+Now open Windows Power Shell
+============================
+
+ python manage.py shell
+
+ from music.models import Album,Song
+
+ 
+
+ Album.objects.all()
+Out[3]: <QuerySet []>
+
+ a = Album(artist="Taylor Swift",album_title="Red",genre="Country",album_logo="https://www.fnordware.com/superpng/straight.png")
+ a.save()
+	
+a.artist
+a.id
+a.pk
+
+ b = Album()
+ b.artist = "Myth"
+ b.album_title = "High School"
+ b.genre = "Punk"
+ b.album_logo = "https://www.fnordware.com/superpng/straight.png"
+ b.save()
+ a.artist
+'Taylor Swift'
+ b.artist
+'Myth'
+b.album_title = "Middle School"
+ b.album_title
+ 'Middle School'
+
+
+add this to model.py for album name
+    def __str__(self):
+        return self.album_title + '-' + self.artist
+
+Test Windows Power Shell
+from music.models import Album,Song
+
+ Album.objects.all()
+ <QuerySet [<Album: Red-Taylor Swift>, <Album: High School-Myth>]>
+Filtrering
+===============
+Album.objects.filter(id=1)
+<QuerySet [<Album: Red-Taylor Swift>]>
+
+ Album.objects.filter(id=2)
+ <QuerySet [<Album: High School-Myth>]>
+
+ Album.objects.filter(id=3)
+ <QuerySet []>
+
+karunakar
+
+
+
+
+
+
+
+
+
+
+

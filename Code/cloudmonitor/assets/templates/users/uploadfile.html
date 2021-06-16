@@ -1,0 +1,47 @@
+{% extends 'users/userbase.html'%}
+{% load static %}
+{% block contents%}
+<div id="qbootstrap-testimonial" class="qbootstrap-bg-section">
+		<div class="container">
+			<div class="row animate-box">
+
+
+					<p>
+					<h1>Created Apps and upload file</h1>
+					<table border="2px">
+                                            <tr style="color: darkblue">
+                                                <th>S.No</th>
+                                                <th>Name</th>
+                                                <th>Email</th>
+                                                <th>App Name</th>
+                                                <th>Access Key</th>
+                                                <th>Token Key</th>
+                                                <th>Upload Data</th>
+
+                                            </tr>
+                                            {% for i in objects %}
+                                            <tr style="color: RED">
+                                                <td>{{forloop.counter}}</td>
+                                                <td>{{i.name}}</td>
+                                                <td>{{i.email}}</td>
+                                                <td>{{i.appname}}</td>
+                                                <td>{{i.accesskey}}</td>
+                                                <td>{{i.secretkey}}</td>
+
+                                                {% if i.secretkey != 'waiting' %}
+                                                <td><a class="btn-link" href="{% url 'useruploadfile' i.appname %}" style="color:GREEN">Upload Files</a></td>
+                                                {% else %}
+                                                <td style="color:Yellow"> Key Not Generated</td>
+                                                {% endif %}
+                                            </tr>
+                                            {% endfor %}
+                                        </table>
+                    </p>
+
+			</div>
+
+		</div>
+	</div>
+
+
+{% endblock %}

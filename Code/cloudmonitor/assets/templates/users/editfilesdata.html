@@ -1,0 +1,60 @@
+{% extends 'users/userbase.html'%}
+{% load static %}
+{% block contents%}
+<div id="qbootstrap-testimonial" class="qbootstrap-bg-section">
+		<div class="container">
+			<div class="row animate-box">
+
+                    <span><h1>Edit  File </h1></span>
+					<p>
+                <form action="{% url 'resturl' id %}" method="POST">
+				{%csrf_token%}
+						<div class="row form-group">
+							<div class="col-md-6">
+								<label for="fname">User name</label>
+								<input type="text" id="username" class="form-control" value="{{request.session.loggeduser}}" readonly>
+							</div>
+                            <div class="col-md-6">
+								<label for="fname">File ID</label>
+								<input type="text" name="fileid" id="fileid" class="form-control" value="{{id}}" readonly>
+							</div>
+
+						</div>
+
+						<div class="row form-group">
+							<div class="col-md-12">
+								<label for="email">Email</label>
+								<input type="text" id="email" class="form-control" value="{{request.session.email}}" readonly>
+							</div>
+						</div>
+
+						<div class="row form-group">
+							<div class="col-md-12">
+								<label for="subject">File Name</label>
+								<input type="text" name="filename" id="subject" class="form-control" value="{{filename}}" readonly>
+							</div>
+						</div>
+
+						<div class="row form-group">
+							<div class="col-md-12">
+								<label for="message">Message</label>
+								<textarea name="filedata" id="message" cols="30" rows="10" class="form-control" placeholder="Say something about us">{{fdata}}</textarea>
+							</div>
+						</div>
+						<div class="form-group text-center">
+							<input type="submit" value="Update File" class="btn btn-primary">
+						</div>
+
+					</form>
+
+
+
+                    </p>
+				</div>
+			</div>
+
+
+	</div>
+
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'admin/adminbase.html' %}
+{% load static %}
+{% block contents %}
+<div id="qbootstrap-counter" class="qbootstrap-counters" style="background-image: url({% static 'images/img_bg_2.jpg'%});" data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+					<div class="row">
+						<h1>Vew Registered Users</h1>
+                                        <table border="2px">
+                                            <tr style="color: darkblue">
+                                                <th>S.No</th>
+                                                <th>Name</th>
+                                                <th>Email</th>
+                                                <th>Mobile</th>
+                                                <th>Address</th>
+                                                <th>City</th>
+                                                <th>State</th>
+                                                <th>Status</th>
+                                                <th>Activate</th>
+                                            </tr>
+                                            {% for i in objects %}
+                                            <tr style="color: WHITE">
+                                                <td>{{forloop.counter}}</td>
+                                                <td>{{i.name}}</td>
+                                                <td>{{i.email}}</td>
+                                                <td>{{i.mobile}}</td>
+                                                <td>{{i.address}}</td>
+                                                <td>{{i.city}}</td>
+                                                <td>{{i.state}}</td>
+                                                <td>{{i.status}}</td>
+                                                {% if i.status == 'waiting' %}
+                                                <td><a class="btn-link" href="{% url 'activatewaitedusers' i.id %}" style="color:DARKBLUE">Activate</a></td>
+                                                {% else %}
+                                                <td> Activated</td>
+                                                {% endif %}
+                                            </tr>
+                                            {% endfor %}
+                                        </table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

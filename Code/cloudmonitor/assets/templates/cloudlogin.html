@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+<aside id="qbootstrap-hero">
+		<div class="flexslider">
+			<ul class="slides">
+		   	<li style="background-image: url({%static 'images/cldadmin.webp'%});">
+		   		<div class="overlay"></div>
+		   		<div class="container">
+		   			<div class="row">
+			   			<div class="col-md-8 col-md-offset-2 text-center slider-text">
+			   				<div class="slider-text-inner">
+                                <h2>Cloud Server Login here</h2>
+                        <form action="{%url 'cloudlogincheck'%}" method="POST" class="contact-form">
+							{% csrf_token %}
+						<div class="form-group">
+							<label for="name" class="sr-only">Cloud Name</label>
+							<input type="text" name="name" style="background-color : #d1d1d1;" class="form-control" id="name" placeholder="Enter Login Name">
+						</div>
+						<div class="form-group">
+							<label for="email" class="sr-only">Email</label>
+							<input type="password" name="password" style="background-color : #d1d1d1;" class="form-control" id="email" placeholder="Enter Password ">
+						</div>
+
+						<div class="form-group">
+							<input type="submit" id="btn-submit" class="btn btn-primary btn-send-message btn-md" value="Login">
+						</div>
+					</form>
+			   				</div>
+			   			</div>
+			   		</div>
+		   		</div>
+		   	</li>
+		  	</ul>
+	  	</div>
+	</aside>
+This is a Index page
+{% endblock %}

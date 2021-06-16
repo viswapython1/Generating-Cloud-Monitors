@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+<div id="qbootstrap-contact">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-md-10 col-md-offset-1 animate-box">
+					<h3>User Register Form</h3>
+					<form action="{% url 'storeregistration'%}" method="POST">
+						{% csrf_token %}
+						<div class="row form-group">
+							<div class="col-md-6">
+								<label for="fname">User Name</label>
+								<input type="text" name="name" id="fname" class="form-control" required="True" placeholder="Your Name">
+							</div>
+						</div>
+
+						<div class="row form-group">
+							<div class="col-md-12">
+								<label for="email">Email</label>
+								<input type="email" name="email" id="email" class="form-control" required="True"  placeholder="Your email address">
+							</div>
+						</div>
+
+						<div class="row form-group">
+							<div class="col-md-12">
+								<label for="subject">Enter Password </label>
+								<input type="password" name="password" id="subject" class="form-control" required="True"  placeholder="Enter Password here">
+							</div>
+						</div>
+						<div class="row form-group">
+							<div class="col-md-12">
+								<label for="subject">Enter Mobile number </label>
+								<input type="text" name="mobile" id="subject" patern="[6789][0-9]{9}" required="True"  class="form-control" placeholder="Enter Mobile Number here">
+							</div>
+						</div>
+
+						<div class="row form-group">
+							<div class="col-md-12">
+								<label for="message">Address</label>
+								<textarea name="address" id="message" cols="30" rows="10" class="form-control"  required="True" placeholder="Say something about us"></textarea>
+							</div>
+						</div>
+						<div class="row form-group">
+							<div class="col-md-12">
+								<label for="fname">City</label>
+								<input type="text" name="city" id="fname" class="form-control" required="True"  placeholder="Your City Name">
+							</div>
+						</div>
+						<div class="row form-group">
+							<div class="col-md-12">
+								<label for="fname">State</label>
+								<input type="text" name="state" id="fname" class="form-control" required="True"  placeholder="Your State Name">
+							</div>
+                            <input type="hidden" value="waiting" name="status">
+						</div>
+						<div class="form-group text-center">
+							<input type="submit" value="Register" class="btn btn-primary">
+						</div>
+ <center>
+                        {% if messages %}
+                               {% for message in messages %}
+                                  <font color='RED'> {{ message }}</font>
+                               {% endfor %}
+                           {% endif %}
+                           </center>
+					</form>
+				</div>
+			</div>
+
+		</div>
+	</div>
+This is a Index page
+{% endblock %}

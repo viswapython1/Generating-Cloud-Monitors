@@ -1,0 +1,36 @@
+lRequirement for Python Project
+
+Student should provide thise Details
+before Selecting Python Project
+
+
+Processor I3 6th Gen and above
+RAM Min 4GB
+OS windows 10 64 Bit
+High Speed Internet connection
+
+Python 3.7 64bit (SDK) or Above
+
+Path to add : 
+C:\Users\Teju\AppData\Local\Programs\Python\Python37\Scripts;
+C:\Users\Teju\AppData\Local\Programs\Python\Python37
+
+C:\Program Files\Java\jdk1.8.0_121\bin;
+C:\Users\Teju\AppData\Local\Programs\Python\Python37\Scripts;
+C:\Users\Teju\AppData\Local\Programs\Python\Python37;
+Python 3.7 64bit (SDK) or Above
+
+
+pip install numpy
+pip install pandas
+pip install mysqlclient
+pip install mysql-connector
+pip install django 
+
+
+
+
+
+
+
+

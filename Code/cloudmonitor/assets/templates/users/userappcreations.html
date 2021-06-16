@@ -1,0 +1,74 @@
+{% extends 'users/userbase.html'%}
+{% load static %}
+{% block contents%}
+<div id="qbootstrap-testimonial" class="qbootstrap-bg-section">
+		<div class="container">
+			<div class="row animate-box">
+				<div class="col-md-6 col-md-offset-3 text-center qbootstrap-heading">
+					<h2><span>User App Creations</h2>
+					<p>
+
+                            <form action="{% url 'appcreaterequest'%}" method="POST" class="contact-form">
+                                {%csrf_token%}
+                                <div class="form-group">
+							        <label for="name" class="sr-only">Name</label>
+							        <input type="text" name="usrname" class="form-control" value="{{request.session.loggeduser}}" readonly id="name" >
+						        </div>
+						        <div class="form-group">
+							        <label for="email" class="sr-only">Email</label>
+							        <input type="email" name="usremail" class="form-control" id="email" value="{{request.session.email}}" readonly>
+						        </div>
+                                <div class="form-group">
+							        <label for="name" class="sr-only">App Nname</label>
+							        <input type="text" name="appname" class="form-control" placeholder="Enter App name" required="True" id="name" >
+						        </div>
+                                <div class="form-group">
+							        <label for="name" class="sr-only">Access key</label>
+							        <input type="text" name="accesskey" class="form-control" placeholder="cloud admin will generate"  readonly id="name" >
+						        </div>
+                                <div class="form-group">
+							        <label for="name" class="sr-only">Secret key</label>
+							        <input type="text" class="form-control" name="secretkey" placeholder="cloud admin will generate" readonly id="name" >
+						        </div>
+                                <div class="form-group">
+							        <input type="submit" id="btn-submit" class="btn btn-primary btn-send-message btn-md" value="Create App">
+						        </div>
+                            </form>
+					<h1>Created Apps </h1>
+					<table border="2px">
+                                            <tr style="color: darkblue">
+                                                <th>S.No</th>
+                                                <th>Name</th>
+                                                <th>Email</th>
+                                                <th>App Name</th>
+                                                <th>Access Key</th>
+                                                <th>Token Key</th>
+                                                <th>Upload Data</th>
+
+                                            </tr>
+                                            {% for i in objects %}
+                                            <tr style="color: RED">
+                                                <td>{{forloop.counter}}</td>
+                                                <td>{{i.name}}</td>
+                                                <td>{{i.email}}</td>
+                                                <td>{{i.appname}}</td>
+                                                <td>{{i.accesskey}}</td>
+                                                <td>{{i.secretkey}}</td>
+
+                                                {% if i.secretkey != 'waiting' %}
+                                                <td><a class="btn-link" href="{% url 'useruploadfile' i.appname %}" style="color:GREEN">Upload Files</a></td>
+                                                {% else %}
+                                                <td style="color:Yellow"> Key Not Generated</td>
+                                                {% endif %}
+                                            </tr>
+                                            {% endfor %}
+                                        </table>
+                    </p>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+{% endblock %}

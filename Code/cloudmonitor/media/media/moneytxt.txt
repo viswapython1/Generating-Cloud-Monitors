@@ -1,0 +1,10 @@
+Naive Bayes Classifiers
+This article discusses the theory behind the Naive Bayes classifiers and their implementation.
+
+Naive Bayes classifiers are a collection of classification algorithms based on Bayes Theorem. It is not a single algorithm but a family of algorithms where all of them share a common principle, i.e. every pair of features being classified is independent of each other.
+
+To start with, let us consider a dataset. Consider a fictional dataset that describes the weather conditions for playing a game of golf. Given the weather conditions, each tuple classifies the conditions as fit(Yes) or unfit(No) for plaing golf.
+
+Here is a tabular representation of our dataset.
+
+AM Not Sagar

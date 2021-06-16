@@ -1,0 +1,53 @@
+AM Working Fine
+<ul>
+
+    <li><a href="{% url 'account-list' %}">accounts</a> </li>
+    <li><a href="{% url 'contact-list' %}">contacts</a> </li>
+    <li><a href="{% url 'activity-list' %}">activities</a> </li>
+    <li><a href="{% url 'activity-status-list' %}">activitystatuses</a> </li>
+    <li><a href="{% url 'contact-source-list' %}">contactsources</a> </li>
+    <li><a href="{% url 'contact-status-list' %}">contactstatuses</a> </li>
+</ul>
+<h2>The Registerd Accounts Are</h2>
+<table border="2px">
+    <tr>
+        <td>S.No</td>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Phone</td>
+        <td>Industry</td>
+        <td>Website</td>
+        <td>Description</td>
+        <td>Created By</td>
+        <td>Created At</td>
+        <td>Activity Status</td>
+    </tr>
+    {% for profile in profiles %}
+    <tr>
+        <td>{{forloop.counter}} </td>
+        <td>{{ profile.name }} </td>
+        <td>{{ profile.email }} </td>
+        <td>{{ profile.phone }} </td>
+        <td>{{ profile.industry }} </td>
+        <td>{{ profile.website }} </td>
+        <td>{{ profile.description }} </td>
+        <td>{{ profile.createdBy }} </td>
+        <td>{{ profile.createdAt }} </td>
+        <td>{{ profile.isActive }} </td>
+
+    </tr>
+    {% endfor %}
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+

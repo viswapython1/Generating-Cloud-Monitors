@@ -1,0 +1,9 @@
+1) A Comprehensive Study on Social Network Mental Disorders Detection via Online Social Media Mining
+2) An Approach to Balance Maintenance Costs and Electricity Consumption in Cloud Data Centers
+3) A Hybrid Approach for Detecting Automated Spammers in Twitter
+4) An Efficient and Privacy-Preserving Biometric Identification Scheme in Cloud Computing
+5) An Efficient Method for High Quality and Cohesive Topical Phrase Mining
+6) Analyzing and Detecting Money-Laundering Accounts in Online Social Networks
+7) Credit card fraud detection using AdaBoost and majority voting
+8) Detection of suicide-related posts in Twitter data streams
+
